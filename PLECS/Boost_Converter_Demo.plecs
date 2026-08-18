@@ -6632,7 +6632,7 @@ Plecs {
       MaskIconOpaque off
       MaskIconRotates on
       Schematic {
-        Location      [0, 23; 1536, 773]
+        Location      [407, 119; 1943, 869]
         ZoomFactor    1.33333
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -6666,7 +6666,7 @@ Plecs {
           LabelPosition west
           Parameter {
             Variable      "C"
-            Value         "100e-6"
+            Value         "68e-6"
             Show          on
           }
           Parameter {
@@ -6685,7 +6685,7 @@ Plecs {
           LabelPosition west
           Parameter {
             Variable      "R"
-            Value         "50"
+            Value         "5"
             Show          on
           }
         }
@@ -6699,7 +6699,7 @@ Plecs {
           LabelPosition east
           Parameter {
             Variable      "V"
-            Value         "2.5"
+            Value         "3.5"
             Show          on
           }
         }
@@ -6712,16 +6712,16 @@ Plecs {
           Flipped       off
           LabelPosition south
           Frame         [-15, -25; 15, 25]
-          Location      [264, 37; 1113, 860]
+          Location      [51, 779; 900, 1754]
           State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAACm/wCAAAAA/sAAAAQAFoAb"
-"wBvAG0AQQByAGUAYQAAAAAA/////wAAAKcA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
-"A0AAACmwAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAANRAAA"
-"Ad/wBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA1EAAABEAP///wAAA1EAAAKb"
+"wBvAG0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
+"A0AAACmwAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAANRAAA"
+"Ad/wBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA1EAAABEAP///wAAA1EAAAMz"
 "AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
-          HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":179,\"Labels\""
-":[\"Delta\",\"Mean\",\"RMS\"],\"VisualIdxs\":[3,8,9]}"
+          HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":185,\"Labels"
+"\":[\"Delta\",\"Mean\",\"RMS\"],\"VisualIdxs\":[3,8,9]}"
           PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "QAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -6729,7 +6729,7 @@ Plecs {
           TimeRange     "0"
           ScrollingMode "1"
           SingleTimeAxis "1"
-          Open          "0"
+          Open          "1"
           Ts            "-1"
           SampleLimit   "0"
           XAxisLabel    "Time / s"
@@ -6853,11 +6853,6 @@ Plecs {
             Path          "Closed-Loop with \\nUC3843 and PI1"
             Signals       {"Inductor current"}
           }
-          Probe {
-            Component     "Vi"
-            Path          "Closed-Loop with \\nUC3843 and PI1"
-            Signals       {"Measured voltage"}
-          }
         }
         Component {
           Type          PlecsProbe
@@ -6883,7 +6878,7 @@ Plecs {
           LabelPosition east
           Parameter {
             Variable      "R"
-            Value         "0.39"
+            Value         "1"
             Show          on
           }
         }
@@ -7000,15 +6995,6 @@ Plecs {
           }
         }
         Component {
-          Type          Voltmeter
-          Name          "Vi"
-          Show          on
-          Position      [395, 215]
-          Direction     up
-          Flipped       off
-          LabelPosition west
-        }
-        Component {
           Type          Resistor
           Name          "ESRC"
           Show          on
@@ -7031,9 +7017,9 @@ Plecs {
           Flipped       on
           LabelPosition south
           Probe {
-            Component     "R1"
+            Component     "C2"
             Path          "Closed-Loop with \\nUC3843 and PI1"
-            Signals       {"Resistor voltage"}
+            Signals       {"Capacitor voltage"}
           }
         }
         Component {
@@ -7253,12 +7239,12 @@ Plecs {
           }
           Parameter {
             Variable      "kp"
-            Value         "0.2"
+            Value         "1.4"
             Show          off
           }
           Parameter {
             Variable      "ki"
-            Value         "100"
+            Value         "700"
             Show          off
           }
           Parameter {
@@ -7386,7 +7372,7 @@ Plecs {
           Flipped       on
           LabelPosition south
           Probe {
-            Component     "Vi"
+            Component     "Vm1"
             Path          "Closed-Loop with \\nUC3843 and PI1"
             Signals       {"Measured voltage"}
           }
@@ -7423,7 +7409,7 @@ Plecs {
             Direction     right
           }
           Schematic {
-            Location      [249, 92; 1396, 702]
+            Location      [614, 314; 1761, 924]
             ZoomFactor    1
             SliderPosition [0, 0]
             ShowBrowser   off
@@ -8580,20 +8566,6 @@ Plecs {
           LabelPosition east
         }
         Component {
-          Type          Resistor
-          Name          "R6"
-          Show          on
-          Position      [200, 225]
-          Direction     up
-          Flipped       off
-          LabelPosition east
-          Parameter {
-            Variable      "R"
-            Value         "10e3"
-            Show          off
-          }
-        }
-        Component {
           Type          Voltmeter
           Name          "Vm1"
           Show          on
@@ -8654,6 +8626,15 @@ Plecs {
             }
           }
         }
+        Component {
+          Type          Ground
+          Name          "Ground2"
+          Show          off
+          Position      [625, 285]
+          Direction     up
+          Flipped       off
+          LabelPosition east
+        }
         Connection {
           Type          Wire
           SrcComponent  "C1"
@@ -8682,42 +8663,34 @@ Plecs {
           SrcTerminal   2
           Points        [300, 250]
           Branch {
-            Points        [395, 250]
+            Points        [530, 250]
             Branch {
-              Points        [530, 250]
+              DstComponent  "ESRC"
+              DstTerminal   2
+            }
+            Branch {
+              Points        [625, 250]
               Branch {
-                DstComponent  "ESRC"
-                DstTerminal   2
-              }
-              Branch {
-                Points        [625, 250]
                 DstComponent  "R1"
                 DstTerminal   2
               }
-            }
-            Branch {
-              DstComponent  "Vi"
-              DstTerminal   2
+              Branch {
+                DstComponent  "Ground2"
+                DstTerminal   1
+              }
             }
           }
           Branch {
             Points        [255, 250]
             Branch {
-              Points        [200, 250]
+              Points        [170, 250]
               Branch {
-                Points        [170, 250]
-                Branch {
-                  Points        [115, 250]
-                  DstComponent  "V_dc"
-                  DstTerminal   2
-                }
-                Branch {
-                  DstComponent  "Vm1"
-                  DstTerminal   2
-                }
+                Points        [115, 250]
+                DstComponent  "V_dc"
+                DstTerminal   2
               }
               Branch {
-                DstComponent  "R6"
+                DstComponent  "Vm1"
                 DstTerminal   2
               }
             }
@@ -8780,11 +8753,6 @@ Plecs {
           Points        [300, 190]
           Branch {
             DstComponent  "R2"
-            DstTerminal   1
-          }
-          Branch {
-            Points        [395, 190]
-            DstComponent  "Vi"
             DstTerminal   1
           }
           Branch {
@@ -8897,15 +8865,8 @@ Plecs {
           SrcTerminal   2
           Points        [255, 190]
           Branch {
-            Points        [200, 190]
-            Branch {
-              DstComponent  "R6"
-              DstTerminal   1
-            }
-            Branch {
-              DstComponent  "Vm1"
-              DstTerminal   1
-            }
+            DstComponent  "Vm1"
+            DstTerminal   1
           }
           Branch {
             DstComponent  "C3"
@@ -8940,6 +8901,11 @@ Plecs {
             }
           }
         }
+        Annotation {
+          Name          "<html><body>\n<p>5V from UC3843 vdivder</p></body></h"
+"tml>"
+          Position      [685, 310]
+        } 
       }
     }
     Annotation {
