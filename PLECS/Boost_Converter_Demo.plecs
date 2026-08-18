@@ -6666,7 +6666,7 @@ Plecs {
           LabelPosition west
           Parameter {
             Variable      "C"
-            Value         "100e-6"
+            Value         "68e-6"
             Show          on
           }
           Parameter {
@@ -6685,7 +6685,7 @@ Plecs {
           LabelPosition west
           Parameter {
             Variable      "R"
-            Value         "50"
+            Value         "5"
             Show          on
           }
         }
@@ -6699,7 +6699,7 @@ Plecs {
           LabelPosition east
           Parameter {
             Variable      "V"
-            Value         "2.5"
+            Value         "3.5"
             Show          on
           }
         }
@@ -6712,11 +6712,11 @@ Plecs {
           Flipped       off
           LabelPosition south
           Frame         [-15, -25; 15, 25]
-          Location      [920, 180; 1769, 1021]
+          Location      [51, 779; 900, 1754]
           State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAACm/wCAAAAA/sAAAAQAFoAb"
 "wBvAG0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
 "A0AAACmwAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAANRAAA"
-"Ad/wBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA1EAAABEAP///wAAA1EAAAKt"
+"Ad/wBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA1EAAABEAP///wAAA1EAAAMz"
 "AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
@@ -6729,7 +6729,7 @@ Plecs {
           TimeRange     "0"
           ScrollingMode "1"
           SingleTimeAxis "1"
-          Open          "0"
+          Open          "1"
           Ts            "-1"
           SampleLimit   "0"
           XAxisLabel    "Time / s"
@@ -6878,7 +6878,7 @@ Plecs {
           LabelPosition east
           Parameter {
             Variable      "R"
-            Value         "0.39"
+            Value         "1"
             Show          on
           }
         }
@@ -7239,12 +7239,12 @@ Plecs {
           }
           Parameter {
             Variable      "kp"
-            Value         "0.2"
+            Value         "1.4"
             Show          off
           }
           Parameter {
             Variable      "ki"
-            Value         "100"
+            Value         "700"
             Show          off
           }
           Parameter {
@@ -7409,7 +7409,7 @@ Plecs {
             Direction     right
           }
           Schematic {
-            Location      [249, 92; 1396, 702]
+            Location      [614, 314; 1761, 924]
             ZoomFactor    1
             SliderPosition [0, 0]
             ShowBrowser   off
@@ -8901,6 +8901,11 @@ Plecs {
             }
           }
         }
+        Annotation {
+          Name          "<html><body>\n<p>5V from UC3843 vdivder</p></body></h"
+"tml>"
+          Position      [685, 310]
+        } 
       }
     }
     Annotation {
