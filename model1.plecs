@@ -3,7 +3,7 @@ Plecs {
   Version       "5.0"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  TimeSpan      "2e-3"
+  TimeSpan      "10e-3"
   Timeout       ""
   Solver        "auto"
   MaxStep       "1e-6"
@@ -11,7 +11,7 @@ Plecs {
   FixedStep     "1e-3"
   Refine        "1"
   ZCStepSize    "1e-9"
-  RelTol        "1e-3"
+  RelTol        "1e-4"
   AbsTol        "-1"
   TurnOnThreshold "0"
   NonIdealSwitchResistance "1"
@@ -100,93 +100,59 @@ Plecs {
       IconRotates         on
       Parameter {
         Variable      "Netlist"
-        Value         "* BEGIN SPICE MODEL LM358\n"
-"* ON SEMICONDUCTOR NEXT GEN MODEL 9/27/2018\n"
-"* MODEL FEATURES INCLUDE OUTPUT SWING, OUTPUT CURRENT\n"
-"* THROUGH THE SUPPLY RAILS, CLASS B OUTPUT STAGE, OUTPUT\n"
-"* SWING, OPEN LOOP GAIN AND PHASE WITH RL AND CL EFFECTS,\n"
-"* POWER SUPPLY REJECTION WITH FREQUENCY EFFECTS, COMMON\n"
-"* MODE REJECTION WITH FREQUENCY EFFECTS, INPUT VOLTAGE\n"
-"* NOISE WITH 1/F, INPUT CURRENT NOISE, INPUT BIAS AND\n"
-"* OFFSET CURRENT, INPUT COMMON MODE VOLTAGE RANGE, VOS\n"
-"* WITH TEMPERATURE EFFECTS, AND QUIESCENT CURRENT WITH\n"
-"* TEMPERATURE EFFECTS.\n"
-"* MODEL TOTAL SUPPLY VOLTAGE RANGE IS 3 TO 36 V.\n"
-"* MODEL TEMP RANGE IS -55 TO +125 DEG C.\n"
-"* NOTE THAT MODEL IS FUNCTIONAL OVER THIS TEMP RANGE\n"
-"* BUT NOT ALL PARAMETERS TRACK THOSE OF THE REAL PART.\n"
-"* NOTE THAT LIKE THE REAL PART THERE IS NO AB BIAS\n"
-"* IN THE OUTPUT STAGE WHICH UNDER SOME CIRCUMSTANCES\n"
-"* CAUSES HIGH OUTPUT IMPEDANCE AND OR CROSSOVER DELAY\n"
-"* WHICH CAN EFFECT THE PERFORMANCE IN SOME CIRCUITS.\n"
-"* THE COMBINATION OF OUTPUT CURRENT SINK AND NO AB\n"
-"* BIAS WHEN USED WITH A LARGE CLOAD CAN CAUSE SOME\n"
-"* INTERESTING SMALL SIGNAL STEP OVERSHOOTS THAT ARE\n"
-"* LARGER THAN NORMAL AND RAMP LINEARLY RATHER THAN\n"
-"* BEING SHAPED LIKE A CLASSIC OVERSHOOT. THIS HAPPENS\n"
-"* IDENTICALLY WITH THE REAL PART AND THE MODEL.\n"
+        Value         "\n"
+"*   DEVICE = TLC081\n"
 "*\n"
-"* PINOUT ORDER +IN -IN +V -V OUT\n"
-"* PINOUT ORDER  1   2   3  4  5\n"
-".SUBCKT LM358 1 2 3 4 5\n"
-"R44 4 6 4E4\n"
-"I1 4 7 0.5E-6\n"
-"Q1 4 8 9 QPI\n"
-"Q2 4 2 10 QPA\n"
-"Q3 9 9 11 QPI\n"
-"Q4 10 10 11 QPI\n"
-"Q5 12 13 4 QNQ\n"
-"Q6 13 13 4 QNQ\n"
-"Q7 4 12 14 QPQ\n"
-"Q8 3 14 6 QNQ\n"
-"Q9 15 6 4 QNQ\n"
-"Q10 3 15 16 QNQ\n"
-"Q11 3 16 17 QNQ\n"
-"R67 17 16 4E4\n"
-"R68 5 17 18\n"
-"Q12 4 15 5 QPQ\n"
-"Q13 15 17 5 QNQ\n"
-"I2 18 3 120E-9\n"
-"I3 19 3 60E-9\n"
-"I4 20 3 1E-6\n"
-"Q14 11 18 3 QPQ\n"
-"Q15 14 19 3 QPQ\n"
-"Q16 5 7 4 QNQ\n"
-"Q17 15 20 3 QPQ\n"
-"C15 21 22 4.8E-12\n"
-"R69 12 21 3\n"
-"R70 12 15 3E9\n"
-"E2 23 8 3 0 -10E-6\n"
-"V51 23 1 1.56E-3\n"
-"I6 3 4 5E-6\n"
-"R71 4 3 4.5E5\n"
-"Q18 12 9 11 QPQ\n"
-"Q19 13 10 11 QPQ\n"
-"C17 12 13 8E-12\n"
-"C18 6 15 1E-12\n"
-"C21 3 24 100E-15\n"
-"R78 11 24 3E5\n"
-"C22 1 2 0.23E-12\n"
-"C23 2 0 0.79E-12\n"
-"C24 1 0 0.79E-12\n"
-"E3 22 0 15 0 2\n"
-"C25 5 0 50E-15\n"
-"Q20 25 25 0 QNQ\n"
-"G1 3 4 VT 0 3E-4\n"
-"I7 0 25 1E-3\n"
-"V53 25 26 0.25\n"
-"R79 0 26 1E6\n"
-"E4 VT 0 27 26 1\n"
-"R80 0 VT 1E6\n"
-"V54 27 0 0.55\n"
-"R81 0 27 1E6\n"
-".MODEL QPQ PNP IKF=3E-3 RC=300 KF=4.8E-17 BR=1\n"
-".MODEL QPA PNP IKF=3E-3 RC=380 IS=1.01E-16 VAF=245 RE=5 RB=1700 BF=300 KF=4.8"
-"E-17 BR=1\n"
-".MODEL QPI PNP IKF=3E-3 RC=380 IS=1.01E-16 VAF=290 RE=5 RB=1700 BF=306 KF=4.8"
-"E-17 BR=1\n"
-".MODEL QNQ NPN IKF=5E-3 RC=25  KF=4.8E-17 BR=1\n"
-".ENDS"
+"*   Rev. A     \tTLC081 operational amplifier \"macromodel\" subcircuit\n"
+"* \t\t\tcreated using Parts release 8.0 on 12/17/99 at 15:28\n"
+"* \t\t\tParts is a MicroSim product.\n"
+"*\n"
+"*   Rev. B    \t22 August 2003 By Neil Albaugh: ADDED HEADER TEXT & EDITED MO"
+"DEL \n"
+"*\t\t\tFROM TLC081_12V_CMOS.lib\n"
+"*\n"
+"* connections: non-inverting input\n"
+"*              | inverting input\n"
+"*              | | positive power supply\n"
+"*              | | | negative power supply\n"
+"*              | | | | output\n"
+"*              | | | | |\n"
+".subckt TLC081 1 2 3 4 5\n"
+"*\n"
+"c1   11 12 4.2895E-12\n"
+"c2    6  7 8.0000E-12\n"
+"css  10 99 635.76E-15\n"
+"dc    5 53 dy\n"
+"de   54  5 dy\n"
+"dlp  90 91 dx\n"
+"dln  92 90 dx\n"
+"dp    4  3 dx\n"
+"egnd 99  0 poly(2) (3,0) (4,0) 0 .5 .5\n"
+"fb    7 99 poly(5) vb vc ve vlp vln 0 23.969E6 -1E3 1E3 24E6 -24E6\n"
+"ga    6  0 11 12 417.20E-6\n"
+"gcm   0  6 10 99 499.29E-9\n"
+"iss   3 10 dc 130.40E-6\n"
+"hlim 90  0 vlim 1K\n"
+"j1   11  2 10 jx1\n"
+"j2   12  1 10 jx2\n"
+"r2    6  9 100.00E3\n"
+"rd1   4 11 2.3969E3\n"
+"rd2   4 12 2.3969E3\n"
+"ro1   8  5 10\n"
+"ro2   7 99 10\n"
+"rp    3  4 6.0581E3\n"
+"rss  10 99 1.5337E6\n"
+"vb    9  0 dc 0\n"
+"vc    3 53 dc 1.4999\n"
+"ve   54  4 dc .85993\n"
+"vlim  7  8 dc 0\n"
+"vlp  91  0 dc 220\n"
+"vln   0 92 dc 220\n"
+".model dx D(Is=800.00E-18)\n"
+".model dy D(Is=800.00E-18 Rs=1m Cjo=10p)\n"
+".model jx1 PJF(Is=5.0000E-15 Beta=1.3348E-3 Vto=-1)\n"
+".model jx2 PJF(Is=5.0000E-15 Beta=1.3348E-3 Vto=-1)\n"
+".ends"
         Show          off
       }
       Terminal {
@@ -270,7 +236,7 @@ Plecs {
       IconRotates         on
       Parameter {
         Variable      "Netlist"
-        Value         ".SUBCKT irf9z24n 1 2 3\n"
+        Value         ".SUBCKT irf4905 1 2 3\n"
 "**************************************\n"
 "*      Model Generated by MODPEX     *\n"
 "*Copyright(c) Symmetry Design Systems*\n"
@@ -282,38 +248,38 @@ Plecs {
 "*Commercial Use or Resale Restricted *\n"
 "*   by Symmetry License Agreement    *\n"
 "**************************************\n"
-"* Model generated on Mar  7, 97\n"
-"* MODEL FORMAT: SPICE3\n"
+"* Model generated on Jun 19, 96\n"
+"* Model format: SPICE3\n"
 "* Symmetry POWER MOS Model (Version 1.0)\n"
 "* External Node Designations\n"
 "* Node 1 -> Drain\n"
 "* Node 2 -> Gate\n"
 "* Node 3 -> Source\n"
 "M1 9 7 8 8 MM L=100u W=100u\n"
-".MODEL MM PMOS LEVEL=1 IS=1e-32 VTO=-3.43932 LAMBDA=0 KP=2.45777 CGSO=2.66558"
-"e-06 CGDO=1e-11\n"
-"RS 8 3 0.0964368\n"
+".MODEL MM PMOS LEVEL=1 IS=1e-32 VTO=-3.53713 LAMBDA=0.00549383 KP=23.3701 CGS"
+"O=2.84439e-05 CGDO=1e-11\n"
+"RS 8 3 0.0101265\n"
 "D1 1 3 MD\n"
-".MODEL MD D IS=6.40889e-11 RS=0.0172841 N=1.25507 BV=55 IBV=0.00025 EG=1.2 XT"
-"I=4 TT=1e-07 CJO=2.57014e-10 VJ=3.38187 M=0.582191 FC=0.5\n"
+".MODEL MD D IS=1.29014e-08 RS=0.00297795 N=1.46717 BV=55 IBV=0.00025 EG=1.2 X"
+"TI=4 TT=0 CJO=3.56968e-09 VJ=1.17553 M=0.500933 FC=0.5\n"
 "RDS 3 1 2.2e+06\n"
 "RD 9 1 0.0001\n"
-"RG 2 7 11.5569\n"
+"RG 2 7 6\n"
 "D2 5 4 MD1\n"
-".MODEL MD1 D IS=1e-32 N=50 CJO=5.09353e-10 VJ=0.5 M=0.43731 FC=1e-08\n"
+".MODEL MD1 D IS=1e-32 N=50 CJO=4.83772e-09 VJ=0.625334 M=0.543532 FC=1e-08\n"
 "D3 5 0 MD2\n"
-".MODEL MD2 D IS=1e-10 N=0.4 RS=3.00002e-06\n"
+".MODEL MD2 D IS=1e-10 N=0.4 RS=3e-06\n"
 "RL 5 10 1\n"
 "FI2 7 9 VFI2 -1\n"
 "VFI2 4 0 0\n"
 "EV16 10 0 9 7 1\n"
-"CAP 11 10 7.862e-10\n"
+"CAP 11 10 6.08035e-09\n"
 "FI1 7 9 VFI1 -1\n"
 "VFI1 11 6 0\n"
 "RCAP 6 10 1\n"
 "D4 6 0 MD3\n"
 ".MODEL MD3 D IS=1e-10 N=0.4\n"
-".ENDS irf9z24n"
+".ENDS"
         Show          off
       }
       Terminal {
@@ -363,7 +329,7 @@ Plecs {
     }
     Component {
       Type          Resistor
-      Name          "1.5 R3"
+      Name          " R3"
       Show          on
       Position      [345, 40]
       Direction     right
@@ -371,7 +337,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "R"
-        Value         "0.47"
+        Value         "1.4"
         Show          off
       }
     }
@@ -419,19 +385,19 @@ Plecs {
       IconRotates         on
       Parameter {
         Variable      "Netlist"
-        Value         ".subckt bd180 c b e\n"
-"Q c b e bd180\n"
+        Value         ".subckt bc557b c b e\n"
+"Q c b e bc557b\n"
 ".ends\n"
 "\n"
 "*--------------- End of main subcircuit ----------------------\n"
 "*--------------- References are appended below ---------------\n"
 "\n"
-".MODEL bd180 pnp IS=1.54382e-10 BF=133.079 NF=1.177 VAF=46.3848 IKF=0.866463 "
-"ISE=8.61588e-12 NE=3.32575 BR=3.77404 NR=1.23009 VAR=2.96403 IKR=4.72424 ISC="
-"2.88134e-13 NC=3.98064 RB=14.5966 IRB=0.1 RBM=0.1 RE=0.0153802 RC=0.210939 XT"
-"B=0.1 XTI=1.0095 EG=1.05 CJE=5.02381e-08 VJE=0.605782 MJE=0.433555 TF=1e-08 X"
-"TF=1.35722 VTF=0.995801 ITF=0.999972 CJC=4.43982e-10 VJC=0.400099 MJC=0.41050"
-"9 XCJC=0.803125 FC=0.574605 CJS=0 VJS=0.75 MJS=0.5 TR=1e-07 PTF=0 KF=0 AF=1\n"
+".MODEL bc557b pnp IS=1.68077e-12 BF=3385 NF=1.2121 VAF=196.745 IKF=1.30809 IS"
+"E=1.76095e-13 NE=1.56412 BR=99.5231 NR=1.23271 VAR=0.978236 IKR=10 ISC=1.7609"
+"5e-13 NC=1.21727 RB=17.2944 IRB=0.1 RBM=0.1 RE=0.354597 RC=1.77298 XTB=0.1009"
+"46 XTI=1 EG=1.05 CJE=1.13417e-11 VJE=0.654776 MJE=0.23 TF=5.99604e-10 XTF=100"
+"0 VTF=3935.03 ITF=31.8969 CJC=9.54039e-12 VJC=0.4 MJC=0.408114 XCJC=0.910091 "
+"FC=0.8 CJS=0 VJS=0.75 MJS=0.5 TR=1e-07 PTF=0 KF=0 AF=1\n"
 "\n"
         Show          off
       }
@@ -494,7 +460,7 @@ Plecs {
     }
     Component {
       Type          Capacitor
-      Name          "100e-3 C1"
+      Name          "100e-6 C1"
       Show          on
       Position      [715, 220]
       Direction     down
@@ -578,11 +544,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 24; 1920, 1021]
-      State         "AAAA/wAAAAD9AAAAAQAAAAEAAAH8AAADxvwCAAAABPsAAAAUAEQAYQB0A"
-"GEAVwBpAGQAZwBlAHQBAAAANAAAA8YAAABWAP////sAAAAQAFoAbwBvAG0AQQByAGUAYQAAAAAA//"
+      Location      [0, 24; 1920, 1057]
+      State         "AAAA/wAAAAD9AAAAAQAAAAEAAAHwAAAD6vwCAAAABPsAAAAUAEQAYQB0A"
+"GEAVwBpAGQAZwBlAHQBAAAANAAAA+oAAABWAP////sAAAAQAFoAbwBvAG0AQQByAGUAYQAAAAAA//"
 "///wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAA0AAAD2AAAAGIA////+wAAAAw"
-"AVAByAGEAYwBlAHMAAAAANAAAA9gAAABiAP///wAABX4AAAPGAAAABAAAAAQAAAAIAAAACPwAAAAB"
+"AVAByAGEAYwBlAHMAAAAANAAAA9gAAABiAP///wAABYoAAAPqAAAABAAAAAQAAAAIAAAACPwAAAAB"
 "AAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAEAAAAYAFMAYQB2AGUAZAAgAHYAaQBlAHcAIAAxAAAAAAAAA"
 "AA/YGJN0vGp/AAAAAEAf/gAAAAAAAB/+AAAAAAAAAE/Rdszl90BUT9V2TkYqDouAA=="
@@ -636,12 +602,12 @@ Plecs {
       Flipped       off
       LabelPosition south
       Probe {
-        Component     "100e-3 C1"
+        Component     "100e-6 C1"
         Path          ""
         Signals       {"Capacitor voltage"}
       }
       Probe {
-        Component     "1.5 R3"
+        Component     " R3"
         Path          ""
         Signals       {"Resistor current", "Resistor voltage"}
       }
@@ -649,6 +615,11 @@ Plecs {
         Component     "1k R4"
         Path          ""
         Signals       {"Resistor current"}
+      }
+      Probe {
+        Component     "Netlist1"
+        Path          ""
+        Signals       {"Vo"}
       }
     }
     Component {
@@ -807,13 +778,13 @@ Plecs {
       }
       Branch {
         Points        [715, 385]
-        DstComponent  "100e-3 C1"
+        DstComponent  "100e-6 C1"
         DstTerminal   2
       }
     }
     Connection {
       Type          Wire
-      SrcComponent  "1.5 R3"
+      SrcComponent  " R3"
       SrcTerminal   2
       Points        [245, 40]
       Branch {
@@ -840,7 +811,7 @@ Plecs {
       SrcTerminal   3
       Points        [435, 40; 400, 40]
       Branch {
-        DstComponent  "1.5 R3"
+        DstComponent  " R3"
         DstTerminal   1
       }
       Branch {
@@ -959,7 +930,7 @@ Plecs {
       Points        [635, 140]
       Branch {
         Points        [715, 140]
-        DstComponent  "100e-3 C1"
+        DstComponent  "100e-6 C1"
         DstTerminal   1
       }
       Branch {
@@ -970,4 +941,4 @@ Plecs {
     }
   }
 }
-DemoSignature "+eSiy8PjIROQIbpZO4WEMm49CnEpWd9uNAo8l/2J2d0="
+DemoSignature "DAbm5w7G5z5/ozMOq19v8PAC7juKC3RFVqKI5P8Sax4="
